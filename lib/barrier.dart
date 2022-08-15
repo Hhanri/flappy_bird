@@ -11,9 +11,11 @@ class Barrier extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment((2*barrierX + width) / 2 - width, isBottom ? 1 : -1),
-      color: Colors.green,
-      width: MediaQuery.of(context).size.width * width / 2,
-      height: MediaQuery.of(context).size.height * height / 2,
+      child: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width * width / 2,
+        height: MediaQuery.of(context).size.height * height / 2,
+      ),
     );
   }
 }
