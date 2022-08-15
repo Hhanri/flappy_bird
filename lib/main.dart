@@ -1,3 +1,4 @@
+import 'package:flappy_bird/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,14 +17,5 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomePage(),
     );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
