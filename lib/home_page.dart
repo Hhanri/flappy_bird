@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   final double gravity = -4.9;
-  final double velocity = 3.5;
+  final double velocity = 2.5;
   final double birdWidth = 0.1;
   final double birdHeight = 0.1;
 
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
 
   void start() {
     hasStarted = true;
-    Timer.periodic(const Duration(milliseconds: 40), (timer) {
+    Timer.periodic(const Duration(milliseconds: 25), (timer) {
       final height = gravity * time * time + velocity * time;
       setState(() {
         birdY = initialPosition - height;
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
 
     for (int i = 0; i < barrierX.length; i++) {
       if (barrierX[i] - barrierWidth <= birdWidth*2
-        && barrierX[i] + birdWidth >= -birdWidth*2
+        && barrierX[i] >= -birdWidth*2
         && (birdY - 24/9 * birdHeight <= -1 + barrierHeight[i][0] || birdY >= 1 - barrierHeight[i][1] - 1.5 * birdHeight)
       ) return true;
     }
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
   void moveMap() {
     for (int i = 0; i < barrierX.length; i++) {
       setState(() {
-        barrierX[i] -= 0.006;
+        barrierX[i] -= 0.008;
       });
       if (barrierX[i] < -1.5) {
         barrierX[i] += 3;
